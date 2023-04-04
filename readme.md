@@ -1,15 +1,21 @@
-# TypeScript Boilerplate with Vitest Setup ⚡
+# Digital Collection Diglib ULM
 
-[![Test](https://github.com/meratusdev/typescript-node-starter/actions/workflows/test.yml/badge.svg)](https://github.com/meratusdev/typescript-node-starter/actions/workflows/test.yml)
+This repository is a collection of data from the digital library of the Lambung Mangkurat University (ULM) in the form of a [JSON](/data.json) and [CSV](/data.csv) file.
 
-Quickly start building your TypeScript-based application with this preconfigured starter project that includes test setup.
+Source: http://digilib.ulm.ac.id/archive/digital/catalogue.php
+
+File:
+
+- [Google Spreadsheet](https://docs.google.com/spreadsheets/d/19k_x0VqwMKQ6lW-w3yTr3DHFHRYE8NYPWweEAw-bSr0/edit?usp=sharing)
+- [CSV](/data.csv)
+- [JSON](/data.json)
 
 ## How To Use
 
 1. Clone the repository
 
    ```bash
-   git clone https://github.com/meratusdev/typescript-node-starter.git
+   git clone https://github.com/zakiego/digital-collection-diglib-ulm.git
    ```
 
 2. Install dependencies
@@ -22,12 +28,6 @@ Quickly start building your TypeScript-based application with this preconfigured
 
    ```bash
    yarn start
-   ```
-
-4. Run tests
-
-   ```bash
-   yarn test
    ```
 
 ## Folder Structure
