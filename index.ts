@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { getPage, parsePage } from "~/utils/fetch";
-import * as fs from "fs";
+import { toCSV, toJSON } from "~/utils/save";
 
 const dataSchema = z.object({
   no: z.string(),
@@ -8,6 +8,7 @@ const dataSchema = z.object({
   pengarang: z.string(),
   penerbit: z.string(),
   viewLink: z.string(),
+  previewLink: z.string(),
 });
 
 const main = async () => {
@@ -15,6 +16,7 @@ const main = async () => {
 
   const bucket = [] as z.infer<typeof dataSchema>[];
 
+  console.log("[+] Scraping data...");
   for (let page = 1; page <= maxPage; page++) {
     console.log("[+] Scraping page " + page + " of " + maxPage);
     const html = await getPage(page);
@@ -27,7 +29,10 @@ const main = async () => {
     bucket.push(...data);
   }
 
-  fs.writeFileSync("data.json", JSON.stringify(bucket, null, 2));
+  console.log("[+] Success scraping data!");
+
+  toJSON({ data: bucket });
+  toCSV({ data: bucket });
 };
 
 main();
