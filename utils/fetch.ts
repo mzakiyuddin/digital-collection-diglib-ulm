@@ -16,7 +16,7 @@ export const parsePage = (html: string) => {
     .map((i, el) => {
       const tds = $(el).find("td");
 
-      const [no, judul, pengarang, penerbit, viewLink, downloadLink] = tds
+      const [no, judul, pengarang, penerbit, viewLink, previewLink] = tds
         .map((i, el) => {
           if (i === 4 || i === 5) {
             return $(el).find("a").attr("href");
@@ -32,7 +32,9 @@ export const parsePage = (html: string) => {
         pengarang,
         penerbit,
         viewLink,
-        downloadLink,
+        previewLink: `http://digilib.ulm.ac.id/archive/digital/${previewLink.slice(
+          2,
+        )}`,
       };
     })
     .get();
