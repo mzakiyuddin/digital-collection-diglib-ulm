@@ -1,4 +1,5 @@
 import cheerio from "~/lib/cheerio";
+import fetch from "cross-fetch";
 
 export const getPage = async (page: number) => {
   const url = `http://digilib.ulm.ac.id/archive/digital/catalogue.php?page=${page}&key=ALL`;
