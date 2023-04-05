@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { getPage, parsePage } from "~/utils/fetch";
+import { getMaxPage, getPage, parsePage } from "~/utils/fetch";
 import { toCSV, toJSON } from "~/utils/save";
 
 const dataSchema = z.object({
@@ -12,7 +12,9 @@ const dataSchema = z.object({
 });
 
 const main = async () => {
-  const maxPage = 257;
+  const maxPage = await getMaxPage();
+
+  console.log("[+] Done, max page is " + maxPage);
 
   const bucket = [] as z.infer<typeof dataSchema>[];
 
